@@ -1,0 +1,113 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Banking Chatbot",
+        "Hello",
+        "Hey",
+        "Whats up?",
+        "I need help",
+        "Hi",
+        "Good day"
+      ],
+      "responses": [
+        "Hello sir, Do you need any help?",
+        "Hello, Your banking chatbot is here for you.",
+        "Hi sir, what can I do for you?",
+        "Hi sir, how can I help you?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "Thanks for interacting! Hope that was helpful.",
+        "Bye sir, Have a good day",
+        "Bye! Please visit the bank for more queries."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "Thank you for helping", "You are helpful"],
+      "responses": ["I am very happy to help you.", "You're welcome sir!", "Welcome sir, You can ask other queries as well."]
+    },
+    {
+      "tag": "bank",
+      "patterns": [
+        "Tell me about your bank",
+        "I want to know more about this bank",
+        "How is this bank?"
+      ],
+      "responses": [
+        "The bank was established in 2014 A.D and has many branches in different areas. The bank has been awarded as best bank multiple times."
+      ]
+    },
+    {
+      "tag": "mobanking",
+      "patterns": [
+        "Mobile banking",
+        "Mobanking",
+        "Does the bank provide mobile banking services?",
+        "Tell me about mobanking services bank provides.",
+        "I want to know about mobile banking"
+      ],
+      "responses": [
+        "We do provide mobile banking services which is available to choose when you open the account in the bank.",
+        "The mobile banking service can be activated when you open an account and it can be connected to other e-payment systems."
+      ]
+    },
+    {
+      "tag": "delivery",
+      "patterns": [
+        "How long does delivery take?",
+        "How long does shipping take?",
+        "When do I get my delivery?"
+      ],
+      "responses": [
+        "Delivery takes 2-4 days",
+        "Shipping takes 2-4 days"
+      ]
+    },
+    {
+      "tag": "policy",
+      "patterns": [
+        "Bank's policy",
+        "I want to know about bank's policy",
+        "Do you know about bank's policy?",
+        "Tell me about bank's policy.",
+        "How is the bank's policy?"
+      ],
+      "responses": [
+        "There are different policies for different fields in our bank. Please go through the other materials to know about them.\n It may include health policy, financial policy, internet policy and many more."
+      ]
+    },
+    {
+      "tag": "loan",
+      "patterns": [
+        "Loan",
+        "Can I know about loan?",
+        "Whats the interest rate for loan?",
+        "I want to know something about loan",
+        "Does your bank provide loan?",
+        "Tell me about loan"
+      ],
+      "responses": [
+        "The bank provides loan with 5% interest rate."
+      ]
+    },
+    {
+      "tag": "user",
+      "patterns": [
+        "Account",
+        "My account",
+        "I want to know about my account",
+        "How much in account",
+        "Can I get details of my account from here?"
+      ],
+      "responses": [
+        "Sure sir, Please provide me your correct account number to proceed or type quit to exit and start conversation with me again."
+      ]
+    }
+  ]
+}
