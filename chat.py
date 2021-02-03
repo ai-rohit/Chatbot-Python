@@ -2,15 +2,16 @@ import random
 import json
 import pyttsx3
 import torch
-from tkinter import *
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
+from colorama import Fore, Back, Style
+
 
 users = [{"accountNum":"A", "name":"Rohit Shrestha", "amount": "Rs 30000"}, {"accountNum":"B", "name":"Rohit Shrestha", "amount": "Rs 35000"}]
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('queries.json', 'r') as json_data:
+with open('intents.json', 'r') as json_data:
     intents = json.load(json_data)
 
 FILE = "data.pth"
@@ -28,22 +29,13 @@ model.load_state_dict(model_state)
 model.eval()
 
 
-bot_name = "Sam"
-print("Let's chat! (type 'quit' to exit)")
-
-#root = Tk()
-#txt=Text(root)
-#txt.grid(row=0, column=0, columnspan=2)
-#txt.insert(END,"\n"+"Your Banking Chatbot: Welcome, I am here to help You")
-#e=Entry(root, width=100).grid(row=1,column=0)
-#send=Button(root,text="Send").grid(row=1,column=1)
-#root.mainloop()
+bot = "Your Banking Bot"
+print("|-----------------------------------------------------------------------------------------------|")
+print("|               Welcome! Your queries will be answered here by your Banking Bot.                |")
+print("|-----------------------------------------------------------------------------------------------|")
 
 while True:
-    #sentence = ""
-    #reply = ""
-    # sentence = "do you use credit cards?"
-    sentence = input("You: ")
+    sentence = input(Fore.RED+"|\tYou=> ")
     if sentence == "quit":
         break
 
@@ -63,19 +55,23 @@ while True:
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 if tag == "user":
-                    print(f"{bot_name}: {random.choice(intent['responses'])}")
+                    print(f"|\t{bot}: {random.choice(intent['responses'])}")
                     while True:
                         account = input("You: ")
                         if account == "quit":
+                            print(f"|\t{bot}: Now ask other queries if you have any sir!")
                             break
 
                         for user in users:
+
                             if user["accountNum"]==account:
-                                print(f"{bot_name}: Account Number: {user['accountNum']} \n Name: {user['name']} \n Amount: {user['amount']}")
+                                print(f"|\t{bot}: Account Number: {user['accountNum']} \n Name: {user['name']} \n Amount: {user['amount']}")
+                                print("\n Type 'quit' to start a conversation with me again or Type your "
+                                      "account number again to know details")
                                 break
                 else:
-                    print(f"{bot_name}: {random.choice(intent['responses'])}")
+                    print(Fore.BLUE+f"|\t{bot}: {random.choice(intent['responses'])}")
                 #engine.say(f"{random.choice(intent['responses'])}")
                 #engine.runAndWait();
     else:
-        print(f"{bot_name}: I do not understand...")
+        print(f"{bot}: I do not understand...")

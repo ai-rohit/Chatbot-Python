@@ -8,15 +8,15 @@ from torch.utils.data import Dataset, DataLoader
 
 # import models
 from model import NeuralNet
-with open('queries.json', 'r') as f:
-    queries = json.load(f)
+with open('intents.json', 'r') as f:
+    intents = json.load(f)
 
-print(queries)
+print(intents)
 all_words = []
 tags = []
 xy = []  # holds patterns and tags
 
-for query in queries['intents']:
+for query in intents['intents']:
     tag = query['tag']
     tags.append(tag)
 
