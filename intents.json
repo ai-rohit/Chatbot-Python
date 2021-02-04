@@ -9,7 +9,7 @@
         "Whats up?",
         "I need help",
         "Hi",
-        "Good day"
+        "Can you help?"
       ],
       "responses": [
         "Hello sir, Do you need any help?",
@@ -22,9 +22,9 @@
       "tag": "goodbye",
       "patterns": ["Bye", "See you later", "Goodbye"],
       "responses": [
-        "Thanks for interacting! Hope that was helpful.",
-        "Bye sir, Have a good day",
-        "Bye! Please visit the bank for more queries."
+        "Thanks for interacting! Hope that was helpful. You can type quit to exit now",
+        "Bye sir, Have a good day. You can type quit to exit now",
+        "Bye! Please visit the bank for more queries. You can type quit to exit now"
       ]
     },
     {
@@ -35,6 +35,7 @@
     {
       "tag": "bank",
       "patterns": [
+        "Bank",
         "Tell me about your bank",
         "I want to know more about this bank",
         "How is this bank?"
@@ -72,14 +73,14 @@
     {
       "tag": "policy",
       "patterns": [
-        "Bank's policy",
-        "I want to know about bank's policy",
-        "Do you know about bank's policy?",
-        "Tell me about bank's policy.",
-        "How is the bank's policy?"
+        "policy",
+        "I want to know about policy",
+        "Do you know about policy?",
+        "Tell me about policy.",
+        "How is the policy?"
       ],
       "responses": [
-        "There are different policies for different fields in our bank. Please go through the other materials to know about them.\n It may include health policy, financial policy, internet policy and many more."
+        "There are different policies for different fields in our bank. Please go through the other materials to know about them. It may include health policy, financial policy, internet policy and many more."
       ]
     },
     {
@@ -93,7 +94,7 @@
         "Tell me about loan"
       ],
       "responses": [
-        "The bank provides loan with 5% interest rate."
+        "There are different types of loan that the bank provides like student loan, business loan and farmer loan. The interest rate starts from 5%."
       ]
     },
     {
@@ -103,10 +104,25 @@
         "My account",
         "I want to know about my account",
         "How much in account",
-        "Can I get details of my account from here?"
+        "Can I get details of my account from here?",
+        "Can I get my account details?",
+        "Account details"
       ],
       "responses": [
-        "Sure sir, Please provide me your correct account number to proceed or type quit to exit and start conversation with me again."
+        "Please provide me your correct account number to proceed or type quit to exit and start conversation with me again."
+      ]
+    },
+    {
+      "tag": "bankAccount",
+      "patterns": [
+        "Bank Account",
+        "New Account",
+        "How can I open new account in your bank?",
+        "Whats the process to open new account in your bank?",
+        "Open new account"
+      ],
+      "responses": [
+        "You need to visit bank with documents. The documents are your citizenship and two passport size photos. The bank will charge you Rs 1000 for new account."
       ]
     }
   ]

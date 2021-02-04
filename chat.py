@@ -30,13 +30,15 @@ model.eval()
 
 
 bot = "Your Banking Bot"
-print("|-----------------------------------------------------------------------------------------------|")
-print("|               Welcome! Your queries will be answered here by your Banking Bot.                |")
-print("|-----------------------------------------------------------------------------------------------|")
+print("|-----------------------------------------------------------------------------------------------------------------------------|")
+print("|                            Welcome! Your queries will be answered here by your Banking Bot.                                 |")
+print("|-----------------------------------------------------------------------------------------------------------------------------|")
+print(Fore.MAGENTA+"|  Ask any queries related to bank. Type 'quit' to stop the conversation")
 
 while True:
     sentence = input(Fore.RED+"|\tYou=> ")
     if sentence == "quit":
+        print(Fore.BLUE + f"|\t{bot}=> Thank you for interacting with me. Have a good day!")
         break
 
     sentence = tokenize(sentence)
@@ -55,23 +57,24 @@ while True:
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 if tag == "user":
-                    print(f"|\t{bot}: {random.choice(intent['responses'])}")
+                    print(Fore.BLUE+f"|\t{bot}=> {random.choice(intent['responses'])}")
                     while True:
-                        account = input("You: ")
+                        account = input(Fore.RED+"|\tYou=> ")
                         if account == "quit":
-                            print(f"|\t{bot}: Now ask other queries if you have any sir!")
+                            print(Fore.BLUE+f"|\t{bot}=> Now ask other queries if you have any sir!")
                             break
 
                         for user in users:
 
                             if user["accountNum"]==account:
-                                print(f"|\t{bot}: Account Number: {user['accountNum']} \n Name: {user['name']} \n Amount: {user['amount']}")
-                                print("\n Type 'quit' to start a conversation with me again or Type your "
-                                      "account number again to know details")
+                                print(Fore.BLUE+f"|\t{bot}=> Account Number: {user['accountNum']} \n|\tName: {user['name']} \n|\tAmount: {user['amount']}\n")
+
+                                print("|----------------------------------------------------------------------------------------------------------------------|")
+                                print("|\t\t\tType 'quit' to start a conversation with me again or Type your "
+                                      "account number again to know details\t\t   |")
+                                print("|----------------------------------------------------------------------------------------------------------------------|")
                                 break
                 else:
-                    print(Fore.BLUE+f"|\t{bot}: {random.choice(intent['responses'])}")
-                #engine.say(f"{random.choice(intent['responses'])}")
-                #engine.runAndWait();
+                    print(Fore.BLUE+f"|\t{bot}=> {random.choice(intent['responses'])}")
     else:
-        print(f"{bot}: I do not understand...")
+        print(Fore.BLUE+f"|\t{bot}=> Sorry sir, I can't answer your query!")
