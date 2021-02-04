@@ -6,16 +6,18 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 
-# import models
+# importing models
 from model import NeuralNet
+
+# reading and loading json data set
 with open('intents.json', 'r') as f:
     intents = json.load(f)
 
-print(intents)
 all_words = []
 tags = []
-xy = []  # holds patterns and tags
+xy = []  # has input and tags
 
+# pre processing data and storing them in respective list
 for query in intents['intents']:
     tag = query['tag']
     tags.append(tag)
@@ -30,7 +32,6 @@ all_words = [stem(word) for word in all_words if word not in ignore_words]
 all_words = sorted(set(all_words))
 tags = sorted(set(tags))
 
-print(tags)
 
 x_train = []
 y_train = []
@@ -45,7 +46,7 @@ for (pattern_sentence, tag) in xy:
 x_train = np.array(x_train)
 y_train = np.array(y_train)
 
-
+# creating pytorch data set
 class ChatDataset(Dataset):
     def __init__(self):
         self.n_samples = len(x_train)
@@ -59,6 +60,7 @@ class ChatDataset(Dataset):
         return self.n_samples
 
 
+# setting hyper parameters for training data using neural net
 num_epochs = 1000
 batch_size = 8
 hidden_size = 8
@@ -105,7 +107,8 @@ data = {
     "tags": tags
 }
 
+# saving trained data to torch file
 FILE = "data.pth"
 torch.save(data, FILE)
 
-print(f'training complete. file saved to {FILE}')
+print(f'Training complete successfully. File saved as {FILE}')

@@ -59,25 +59,13 @@
       ]
     },
     {
-      "tag": "delivery",
-      "patterns": [
-        "How long does delivery take?",
-        "How long does shipping take?",
-        "When do I get my delivery?"
-      ],
-      "responses": [
-        "Delivery takes 2-4 days",
-        "Shipping takes 2-4 days"
-      ]
-    },
-    {
       "tag": "policy",
       "patterns": [
-        "policy",
-        "I want to know about policy",
-        "Do you know about policy?",
-        "Tell me about policy.",
-        "How is the policy?"
+        "policy of bank",
+        "I want to know about bank's policy",
+        "Do you know about policy of your bank?",
+        "Tell me about bank's policy.",
+        "How is the policy of the bank?"
       ],
       "responses": [
         "There are different policies for different fields in our bank. Please go through the other materials to know about them. It may include health policy, financial policy, internet policy and many more."
