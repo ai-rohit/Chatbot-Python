@@ -1,14 +1,12 @@
 import random
 import json
-import pyttsx3
 import torch
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 from colorama import Fore
 
 # user details stored in list nested with dictionary
-users = [{"accountNum": "A", "name": "Rohit Shrestha", "amount": "Rs 30000"},
-         {"accountNum": "B", "name": "Rohit Shrestha", "amount": "Rs 35000"}]
+users = []
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -70,12 +68,19 @@ while True:
                 if tag == "user":
                     print(Fore.BLUE + f"|\t{bot}=> {random.choice(intent['responses'])}")
                     while True:
+                        accountNum = []
                         account = input(Fore.RED + "|\tYou=> ")
                         if account == "quit":
                             print(Fore.BLUE + f"|\t{bot}=> Now ask other queries if you have any sir!")
                             break
 
                         for user in users:
+                            accountNum.append(user["accountNum"])
+
+                        for user in users:
+                            if account not in accountNum:
+                                print(Fore.BLUE + f"|\t{bot}=> Hmm, I can't find your account number. You can enter account number again correctly or enter quit for other queries.")
+                                break
 
                             if user["accountNum"] == account:
                                 print(

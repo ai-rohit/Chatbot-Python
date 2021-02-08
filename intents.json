@@ -6,7 +6,6 @@
         "Banking Chatbot",
         "Hello",
         "Hey",
-        "Whats up?",
         "I need help",
         "Hi",
         "Can you help?"
@@ -18,6 +17,16 @@
         "Hi sir, how can I help you?"
       ]
     },
+
+    {
+      "tag": "condition",
+      "patterns": ["How are you", "How are you doing?", "How is it going?"],
+      "responses": [
+        "I am doing fine sir. Ask me anything yo want.",
+        "I am doing good and working hard to answer your queries"
+      ]
+    },
+
     {
       "tag": "goodbye",
       "patterns": ["Bye", "See you later", "Goodbye"],
@@ -27,18 +36,19 @@
         "Bye! Please visit the bank for more queries. You can type quit to exit now"
       ]
     },
+
     {
       "tag": "thanks",
       "patterns": ["Thanks", "Thank you", "Thank you for helping", "You are helpful"],
       "responses": ["I am very happy to help you.", "You're welcome sir!", "Welcome sir, You can ask other queries as well."]
     },
+
     {
       "tag": "bank",
       "patterns": [
         "Bank",
         "Tell me about your bank",
-        "I want to know more about this bank",
-        "How is this bank?"
+        "I want to know more about this bank"
       ],
       "responses": [
         "The bank was established in 2014 A.D and has many branches in different areas. The bank has been awarded as best bank multiple times."
